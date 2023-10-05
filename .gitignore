@@ -1,0 +1,10 @@
+/target/
+
+# local scripts
+*.sh
+
+# vscode disctionary
+.cspell/*
+
+Cargo.lock
+credentials.toml
