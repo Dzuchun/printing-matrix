@@ -1,6 +1,6 @@
 use std::num::NonZeroUsize;
 
-use once_cell::sync::Lazy;
+use lazy_static::lazy_static;
 use reqwest::Client;
 use tracing::{subscriber::set_global_default, Subscriber};
 use tracing_bunyan_formatter::{BunyanFormattingLayer, JsonStorageLayer};
@@ -97,18 +97,20 @@ pub fn set_logger(logger: impl Subscriber + Send + Sync) {
     set_global_default(logger).expect("Failed to set logger");
 }
 
-static LOGGER: Lazy<()> = Lazy::new(|| {
-    if std::env::var("TEST_LOG").is_ok() {
-        let logger = create_logger(std::io::stdout);
-        set_logger(logger);
-    } else {
-        let logger = create_logger(std::io::sink);
-        set_logger(logger);
-    }
-});
+lazy_static!{
+    static ref LOGGER: () = 
+        if std::env::var("TEST_LOG").is_ok() {
+            let logger = create_logger(std::io::stdout);
+            set_logger(logger);
+        } else {
+            let logger = create_logger(std::io::sink);
+            set_logger(logger);
+        };
+}
+
 
 fn setup_log() {
-    Lazy::force(&LOGGER);
+    *LOGGER;
 }
 
 /// This group of tests attempts to query site API and parse response into JSON format
