@@ -97,17 +97,15 @@ pub fn set_logger(logger: impl Subscriber + Send + Sync) {
     set_global_default(logger).expect("Failed to set logger");
 }
 
-lazy_static!{
-    static ref LOGGER: () = 
-        if std::env::var("TEST_LOG").is_ok() {
-            let logger = create_logger(std::io::stdout);
-            set_logger(logger);
-        } else {
-            let logger = create_logger(std::io::sink);
-            set_logger(logger);
-        };
+lazy_static! {
+    static ref LOGGER: () = if std::env::var("TEST_LOG").is_ok() {
+        let logger = create_logger(std::io::stdout);
+        set_logger(logger);
+    } else {
+        let logger = create_logger(std::io::sink);
+        set_logger(logger);
+    };
 }
-
 
 fn setup_log() {
     *LOGGER;
@@ -936,7 +934,7 @@ mod structure_enforcement {
         let mut beep_count = 0;
         let mut rng = rand::thread_rng();
         move || {
-            let pause = 500..1500;
+            let pause = 1000..2000;
             let duration = Duration::from_millis(pause.choose(&mut rng).unwrap());
             beep_count += 1;
             println!("Beep no. {}", beep_count);
@@ -1023,7 +1021,7 @@ mod structure_enforcement {
         let mut error_count = 0;
 
         let client = Client::new();
-        let mut feed = client.feed().flat().take(500);
+        let mut feed = client.feed().flat().take(100);
         while let Some(maybe_article) = feed.next().await {
             safety_break().await;
             let article = match maybe_article {

@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Represents Drukarnia API caller that currently has a valid authenticated user"><title>AuthDrukarnia in type_matrux::client - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="type_matrux" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc trait"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="logo-container" href="../../type_matrux/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a></nav><nav class="sidebar"><a class="logo-container" href="../../type_matrux/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><h2 class="location"><a href="#">AuthDrukarnia</a></h2><div class="sidebar-elems"><section><h3><a href="#required-associated-types">Required Associated Types</a></h3><ul class="block"><li><a href="#associatedtype.Downgrade">Downgrade</a></li></ul><h3><a href="#required-methods">Required Methods</a></h3><ul class="block"><li><a href="#tymethod.authorized_user">authorized_user</a></li><li><a href="#tymethod.bookmark_article">bookmark_article</a></li><li><a href="#tymethod.get_bookmark_lists">get_bookmark_lists</a></li><li><a href="#tymethod.get_list_articles">get_list_articles</a></li><li><a href="#tymethod.like_article">like_article</a></li><li><a href="#tymethod.set_comment_liked">set_comment_liked</a></li><li><a href="#tymethod.unbookmark_article">unbookmark_article</a></li><li><a href="#tymethod.user_set_following">user_set_following</a></li></ul><h3><a href="#implementors">Implementors</a></h3></section><h2><a href="index.html">In type_matrux::client</a></h2></div></nav><main><div class="width-limiter"><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="main-heading"><h1>Trait <a href="../index.html">type_matrux</a>::<wbr><a href="index.html">client</a>::<wbr><a class="trait" href="#">AuthDrukarnia</a><button id="copy-path" title="Copy item path to clipboard"><img src="../../static.files/clipboard-7571035ce49a181d.svg" width="19" height="18" alt="Copy item path"></button></h1><span class="out-of-band"><a class="src" href="../../src/type_matrux/client/mod.rs.html#257-410">source</a> · <button id="toggle-all-docs" title="collapse all docs">[<span>&#x2212;</span>]</button></span></div><pre class="rust item-decl"><code>pub trait AuthDrukarnia: <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/ops/deref/trait.Deref.html" title="trait core::ops::deref::Deref">Deref</a>&lt;Target = Self::<a class="associatedtype" href="trait.AuthDrukarnia.html#associatedtype.Downgrade" title="type type_matrux::client::AuthDrukarnia::Downgrade">Downgrade</a>&gt; {
+    type <a href="#associatedtype.Downgrade" class="associatedtype">Downgrade</a>;
+
+    // Required methods
+    fn <a href="#tymethod.authorized_user" class="fn">authorized_user</a>(&amp;self) -&gt; &amp;<a class="struct" href="../object/struct.AuthorizedUser.html" title="struct type_matrux::object::AuthorizedUser">AuthorizedUser</a>;
+<span class="item-spacer"></span>    fn <a href="#tymethod.user_set_following" class="fn">user_set_following</a>&lt;'life0, 'life1, 'async_trait&gt;(
+        &amp;'life0 self,
+        id: &amp;'life1 <a class="struct" href="../object/struct.UserId.html" title="struct type_matrux::object::UserId">UserId</a>,
+        follow: <a class="primitive" href="https://doc.rust-lang.org/1.74.0/std/primitive.bool.html">bool</a>
+    ) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.74.0/core/pin/struct.Pin.html" title="struct core::pin::Pin">Pin</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;dyn <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/future/future/trait.Future.html" title="trait core::future::future::Future">Future</a>&lt;Output = <a class="enum" href="https://doc.rust-lang.org/1.74.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.74.0/std/primitive.unit.html">()</a>, <a class="enum" href="enum.Error.html" title="enum type_matrux::client::Error">Error</a>&gt;&gt; + <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'async_trait&gt;&gt;
+       <span class="where">where Self: 'async_trait,
+             'life0: 'async_trait,
+             'life1: 'async_trait</span>;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_bookmark_lists" class="fn">get_bookmark_lists</a>&lt;'life0, 'async_trait&gt;(
+        &amp;'life0 self
+    ) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.74.0/core/pin/struct.Pin.html" title="struct core::pin::Pin">Pin</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;dyn <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/future/future/trait.Future.html" title="trait core::future::future::Future">Future</a>&lt;Output = <a class="enum" href="https://doc.rust-lang.org/1.74.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../object/struct.FullList.html" title="struct type_matrux::object::FullList">FullList</a>&gt;, <a class="enum" href="enum.Error.html" title="enum type_matrux::client::Error">Error</a>&gt;&gt; + <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'async_trait&gt;&gt;
+       <span class="where">where Self: 'async_trait,
+             'life0: 'async_trait</span>;
+<span class="item-spacer"></span>    fn <a href="#tymethod.bookmark_article" class="fn">bookmark_article</a>&lt;'life0, 'life1, 'life2, 'async_trait&gt;(
+        &amp;'life0 self,
+        list: &amp;'life1 <a class="struct" href="../object/struct.ListId.html" title="struct type_matrux::object::ListId">ListId</a>,
+        article: &amp;'life2 <a class="struct" href="../object/struct.ArticleId.html" title="struct type_matrux::object::ArticleId">ArticleId</a>
+    ) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.74.0/core/pin/struct.Pin.html" title="struct core::pin::Pin">Pin</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;dyn <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/future/future/trait.Future.html" title="trait core::future::future::Future">Future</a>&lt;Output = <a class="enum" href="https://doc.rust-lang.org/1.74.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../object/struct.FullBookmark.html" title="struct type_matrux::object::FullBookmark">FullBookmark</a>, <a class="enum" href="enum.Error.html" title="enum type_matrux::client::Error">Error</a>&gt;&gt; + <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'async_trait&gt;&gt;
+       <span class="where">where Self: 'async_trait,
+             'life0: 'async_trait,
+             'life1: 'async_trait,
+             'life2: 'async_trait</span>;
+<span class="item-spacer"></span>    fn <a href="#tymethod.unbookmark_article" class="fn">unbookmark_article</a>&lt;'life0, 'life1, 'async_trait&gt;(
+        &amp;'life0 self,
+        article: &amp;'life1 <a class="struct" href="../object/struct.ArticleId.html" title="struct type_matrux::object::ArticleId">ArticleId</a>
+    ) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.74.0/core/pin/struct.Pin.html" title="struct core::pin::Pin">Pin</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;dyn <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/future/future/trait.Future.html" title="trait core::future::future::Future">Future</a>&lt;Output = <a class="enum" href="https://doc.rust-lang.org/1.74.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../object/struct.FullBookmark.html" title="struct type_matrux::object::FullBookmark">FullBookmark</a>, <a class="enum" href="enum.Error.html" title="enum type_matrux::client::Error">Error</a>&gt;&gt; + <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'async_trait&gt;&gt;
+       <span class="where">where Self: 'async_trait,
+             'life0: 'async_trait,
+             'life1: 'async_trait</span>;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_list_articles" class="fn">get_list_articles</a>&lt;'life0, 'life1, 'async_trait&gt;(
+        &amp;'life0 self,
+        list: &amp;'life1 <a class="struct" href="../object/struct.ListId.html" title="struct type_matrux::object::ListId">ListId</a>
+    ) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.74.0/core/pin/struct.Pin.html" title="struct core::pin::Pin">Pin</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;dyn <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/future/future/trait.Future.html" title="trait core::future::future::Future">Future</a>&lt;Output = <a class="enum" href="https://doc.rust-lang.org/1.74.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../object/struct.ListArticle.html" title="struct type_matrux::object::ListArticle">ListArticle</a>&gt;, <a class="enum" href="enum.Error.html" title="enum type_matrux::client::Error">Error</a>&gt;&gt; + <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'async_trait&gt;&gt;
+       <span class="where">where Self: 'async_trait,
+             'life0: 'async_trait,
+             'life1: 'async_trait</span>;
+<span class="item-spacer"></span>    fn <a href="#tymethod.like_article" class="fn">like_article</a>&lt;'life0, 'life1, 'async_trait&gt;(
+        &amp;'life0 self,
+        article: &amp;'life1 <a class="struct" href="../object/struct.ArticleId.html" title="struct type_matrux::object::ArticleId">ArticleId</a>,
+        likes: <a class="primitive" href="https://doc.rust-lang.org/1.74.0/std/primitive.usize.html">usize</a>
+    ) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.74.0/core/pin/struct.Pin.html" title="struct core::pin::Pin">Pin</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;dyn <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/future/future/trait.Future.html" title="trait core::future::future::Future">Future</a>&lt;Output = <a class="enum" href="https://doc.rust-lang.org/1.74.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.74.0/std/primitive.unit.html">()</a>, <a class="enum" href="enum.Error.html" title="enum type_matrux::client::Error">Error</a>&gt;&gt; + <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'async_trait&gt;&gt;
+       <span class="where">where Self: 'async_trait,
+             'life0: 'async_trait,
+             'life1: 'async_trait</span>;
+<span class="item-spacer"></span>    fn <a href="#tymethod.set_comment_liked" class="fn">set_comment_liked</a>&lt;'life0, 'life1, 'life2, 'async_trait&gt;(
+        &amp;'life0 self,
+        article: &amp;'life1 <a class="struct" href="../object/struct.ArticleId.html" title="struct type_matrux::object::ArticleId">ArticleId</a>,
+        comment: &amp;'life2 <a class="struct" href="../object/struct.CommentId.html" title="struct type_matrux::object::CommentId">CommentId</a>,
+        liked: <a class="primitive" href="https://doc.rust-lang.org/1.74.0/std/primitive.bool.html">bool</a>
+    ) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.74.0/core/pin/struct.Pin.html" title="struct core::pin::Pin">Pin</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;dyn <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/future/future/trait.Future.html" title="trait core::future::future::Future">Future</a>&lt;Output = <a class="enum" href="https://doc.rust-lang.org/1.74.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.74.0/std/primitive.unit.html">()</a>, <a class="enum" href="enum.Error.html" title="enum type_matrux::client::Error">Error</a>&gt;&gt; + <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'async_trait&gt;&gt;
+       <span class="where">where Self: 'async_trait,
+             'life0: 'async_trait,
+             'life1: 'async_trait,
+             'life2: 'async_trait</span>;
+}</code></pre><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Represents Drukarnia API caller that currently has a valid authenticated user</p>
+<p>It’s expected to log user out, once dropped</p>
+</div></details><h2 id="required-associated-types" class="small-section-header">Required Associated Types<a href="#required-associated-types" class="anchor">§</a></h2><div class="methods"><details class="toggle" open><summary><section id="associatedtype.Downgrade" class="method"><a class="src rightside" href="../../src/type_matrux/client/mod.rs.html#261">source</a><h4 class="code-header">type <a href="#associatedtype.Downgrade" class="associatedtype">Downgrade</a></h4></section></summary><div class="docblock"><p>Represents a type <code>AuthDrukarnia</code> should dereference to</p>
+<p>It’s intended to be the type one uses to obtain <code>AuthDrukarnia</code> in the first place</p>
+</div></details></div><h2 id="required-methods" class="small-section-header">Required Methods<a href="#required-methods" class="anchor">§</a></h2><div class="methods"><details class="toggle method-toggle" open><summary><section id="tymethod.authorized_user" class="method"><a class="src rightside" href="../../src/type_matrux/client/mod.rs.html#264">source</a><h4 class="code-header">fn <a href="#tymethod.authorized_user" class="fn">authorized_user</a>(&amp;self) -&gt; &amp;<a class="struct" href="../object/struct.AuthorizedUser.html" title="struct type_matrux::object::AuthorizedUser">AuthorizedUser</a></h4></section></summary><div class="docblock"><p>Returns authorized user data</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.user_set_following" class="method"><a class="src rightside" href="../../src/type_matrux/client/mod.rs.html#270">source</a><h4 class="code-header">fn <a href="#tymethod.user_set_following" class="fn">user_set_following</a>&lt;'life0, 'life1, 'async_trait&gt;(
+    &amp;'life0 self,
+    id: &amp;'life1 <a class="struct" href="../object/struct.UserId.html" title="struct type_matrux::object::UserId">UserId</a>,
+    follow: <a class="primitive" href="https://doc.rust-lang.org/1.74.0/std/primitive.bool.html">bool</a>
+) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.74.0/core/pin/struct.Pin.html" title="struct core::pin::Pin">Pin</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;dyn <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/future/future/trait.Future.html" title="trait core::future::future::Future">Future</a>&lt;Output = <a class="enum" href="https://doc.rust-lang.org/1.74.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.74.0/std/primitive.unit.html">()</a>, <a class="enum" href="enum.Error.html" title="enum type_matrux::client::Error">Error</a>&gt;&gt; + <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'async_trait&gt;&gt;<span class="where fmt-newline">where
+    Self: 'async_trait,
+    'life0: 'async_trait,
+    'life1: 'async_trait,</span></h4></section></summary><div class="docblock"><h5 id="implementation-details"><a href="#implementation-details">Implementation details</a></h5>
+<p>a request to <code>/api/relationships/subscribe/{USER_ID}</code>
+POST means “follow”
+DELETE means “unfollow”</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.get_bookmark_lists" class="method"><a class="src rightside" href="../../src/type_matrux/client/mod.rs.html#281">source</a><h4 class="code-header">fn <a href="#tymethod.get_bookmark_lists" class="fn">get_bookmark_lists</a>&lt;'life0, 'async_trait&gt;(
+    &amp;'life0 self
+) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.74.0/core/pin/struct.Pin.html" title="struct core::pin::Pin">Pin</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;dyn <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/future/future/trait.Future.html" title="trait core::future::future::Future">Future</a>&lt;Output = <a class="enum" href="https://doc.rust-lang.org/1.74.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../object/struct.FullList.html" title="struct type_matrux::object::FullList">FullList</a>&gt;, <a class="enum" href="enum.Error.html" title="enum type_matrux::client::Error">Error</a>&gt;&gt; + <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'async_trait&gt;&gt;<span class="where fmt-newline">where
+    Self: 'async_trait,
+    'life0: 'async_trait,</span></h4></section></summary><div class="docblock"><p>GET to <code>/api/articles/bookmarks/lists</code>
+respond: List of
+{
+“_id”:LIST_ID?,
+“name”:LIST_NAME,
+“articlesNum”:usize,
+“owner”:USER_ID,
+“__v”:0
+}</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.bookmark_article" class="method"><a class="src rightside" href="../../src/type_matrux/client/mod.rs.html#300">source</a><h4 class="code-header">fn <a href="#tymethod.bookmark_article" class="fn">bookmark_article</a>&lt;'life0, 'life1, 'life2, 'async_trait&gt;(
+    &amp;'life0 self,
+    list: &amp;'life1 <a class="struct" href="../object/struct.ListId.html" title="struct type_matrux::object::ListId">ListId</a>,
+    article: &amp;'life2 <a class="struct" href="../object/struct.ArticleId.html" title="struct type_matrux::object::ArticleId">ArticleId</a>
+) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.74.0/core/pin/struct.Pin.html" title="struct core::pin::Pin">Pin</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;dyn <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/future/future/trait.Future.html" title="trait core::future::future::Future">Future</a>&lt;Output = <a class="enum" href="https://doc.rust-lang.org/1.74.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../object/struct.FullBookmark.html" title="struct type_matrux::object::FullBookmark">FullBookmark</a>, <a class="enum" href="enum.Error.html" title="enum type_matrux::client::Error">Error</a>&gt;&gt; + <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'async_trait&gt;&gt;<span class="where fmt-newline">where
+    Self: 'async_trait,
+    'life0: 'async_trait,
+    'life1: 'async_trait,
+    'life2: 'async_trait,</span></h4></section></summary><div class="docblock"><ul>
+<li>
+<p>bookmark: POST to <code>/api/articles/bookmarks</code> with json body
+{
+“article”: ARTICLE_ID,
+“list”: LIST_ID
+}
+responds with
+{
+“article”: ARTICLE_ID,
+“owner”:OWNER_ID,
+“list”:LIST_ID,
+“_id”: BOOKMARK_ID?,
+“createdAt”: DateTime,
+“__v”:??
+}</p>
+</li>
+<li>
+<p>un-bookmark: DELETE to <code>/api/articles/{ARTICLE_ID}/bookmarks</code>
+responds with the same, I guess</p>
+</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.unbookmark_article" class="method"><a class="src rightside" href="../../src/type_matrux/client/mod.rs.html#303">source</a><h4 class="code-header">fn <a href="#tymethod.unbookmark_article" class="fn">unbookmark_article</a>&lt;'life0, 'life1, 'async_trait&gt;(
+    &amp;'life0 self,
+    article: &amp;'life1 <a class="struct" href="../object/struct.ArticleId.html" title="struct type_matrux::object::ArticleId">ArticleId</a>
+) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.74.0/core/pin/struct.Pin.html" title="struct core::pin::Pin">Pin</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;dyn <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/future/future/trait.Future.html" title="trait core::future::future::Future">Future</a>&lt;Output = <a class="enum" href="https://doc.rust-lang.org/1.74.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="../object/struct.FullBookmark.html" title="struct type_matrux::object::FullBookmark">FullBookmark</a>, <a class="enum" href="enum.Error.html" title="enum type_matrux::client::Error">Error</a>&gt;&gt; + <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'async_trait&gt;&gt;<span class="where fmt-newline">where
+    Self: 'async_trait,
+    'life0: 'async_trait,
+    'life1: 'async_trait,</span></h4></section></summary><div class="docblock"></div></details><details class="toggle method-toggle" open><summary><section id="tymethod.get_list_articles" class="method"><a class="src rightside" href="../../src/type_matrux/client/mod.rs.html#319">source</a><h4 class="code-header">fn <a href="#tymethod.get_list_articles" class="fn">get_list_articles</a>&lt;'life0, 'life1, 'async_trait&gt;(
+    &amp;'life0 self,
+    list: &amp;'life1 <a class="struct" href="../object/struct.ListId.html" title="struct type_matrux::object::ListId">ListId</a>
+) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.74.0/core/pin/struct.Pin.html" title="struct core::pin::Pin">Pin</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;dyn <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/future/future/trait.Future.html" title="trait core::future::future::Future">Future</a>&lt;Output = <a class="enum" href="https://doc.rust-lang.org/1.74.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/vec/struct.Vec.html" title="struct alloc::vec::Vec">Vec</a>&lt;<a class="struct" href="../object/struct.ListArticle.html" title="struct type_matrux::object::ListArticle">ListArticle</a>&gt;, <a class="enum" href="enum.Error.html" title="enum type_matrux::client::Error">Error</a>&gt;&gt; + <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'async_trait&gt;&gt;<span class="where fmt-newline">where
+    Self: 'async_trait,
+    'life0: 'async_trait,
+    'life1: 'async_trait,</span></h4></section></summary><div class="docblock"><p>GET to <code>/api/articles/bookmarks/lists/{LIST_ID}</code>
+respond: List of
+{
+“_id”:ArticleId,
+“title”:ArticleTitle,
+“description”:ArticleDescription,
+“mainTag”:TagName,
+“readTime”:Duration,
+“slug”:ArticleSlug,
+“mainTagSlug”:TagSlug,
+“mainTagId”:TagId,
+“createdAt”:DateTime,
+“isBookmarked”:bool
+}</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.like_article" class="method"><a class="src rightside" href="../../src/type_matrux/client/mod.rs.html#326">source</a><h4 class="code-header">fn <a href="#tymethod.like_article" class="fn">like_article</a>&lt;'life0, 'life1, 'async_trait&gt;(
+    &amp;'life0 self,
+    article: &amp;'life1 <a class="struct" href="../object/struct.ArticleId.html" title="struct type_matrux::object::ArticleId">ArticleId</a>,
+    likes: <a class="primitive" href="https://doc.rust-lang.org/1.74.0/std/primitive.usize.html">usize</a>
+) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.74.0/core/pin/struct.Pin.html" title="struct core::pin::Pin">Pin</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;dyn <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/future/future/trait.Future.html" title="trait core::future::future::Future">Future</a>&lt;Output = <a class="enum" href="https://doc.rust-lang.org/1.74.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.74.0/std/primitive.unit.html">()</a>, <a class="enum" href="enum.Error.html" title="enum type_matrux::client::Error">Error</a>&gt;&gt; + <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'async_trait&gt;&gt;<span class="where fmt-newline">where
+    Self: 'async_trait,
+    'life0: 'async_trait,
+    'life1: 'async_trait,</span></h4></section></summary><div class="docblock"><ul>
+<li>like: POST to <code>/api/articles/{ARTICLE_ID}/like</code>
+with json body
+{
+likes: LIKES_NUM????
+}</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.set_comment_liked" class="method"><a class="src rightside" href="../../src/type_matrux/client/mod.rs.html#346-347">source</a><h4 class="code-header">fn <a href="#tymethod.set_comment_liked" class="fn">set_comment_liked</a>&lt;'life0, 'life1, 'life2, 'async_trait&gt;(
+    &amp;'life0 self,
+    article: &amp;'life1 <a class="struct" href="../object/struct.ArticleId.html" title="struct type_matrux::object::ArticleId">ArticleId</a>,
+    comment: &amp;'life2 <a class="struct" href="../object/struct.CommentId.html" title="struct type_matrux::object::CommentId">CommentId</a>,
+    liked: <a class="primitive" href="https://doc.rust-lang.org/1.74.0/std/primitive.bool.html">bool</a>
+) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.74.0/core/pin/struct.Pin.html" title="struct core::pin::Pin">Pin</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.74.0/alloc/boxed/struct.Box.html" title="struct alloc::boxed::Box">Box</a>&lt;dyn <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/future/future/trait.Future.html" title="trait core::future::future::Future">Future</a>&lt;Output = <a class="enum" href="https://doc.rust-lang.org/1.74.0/core/result/enum.Result.html" title="enum core::result::Result">Result</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.74.0/std/primitive.unit.html">()</a>, <a class="enum" href="enum.Error.html" title="enum type_matrux::client::Error">Error</a>&gt;&gt; + <a class="trait" href="https://doc.rust-lang.org/1.74.0/core/marker/trait.Send.html" title="trait core::marker::Send">Send</a> + 'async_trait&gt;&gt;<span class="where fmt-newline">where
+    Self: 'async_trait,
+    'life0: 'async_trait,
+    'life1: 'async_trait,
+    'life2: 'async_trait,</span></h4></section></summary><div class="docblock"><p>-like: POST to <code>/api/articles/{ARTICLE_ID}/comments/{COMMENT_ID}/likes</code>
+with empty json body</p>
+<ul>
+<li>unlike: DELETE to same endpoint</li>
+</ul>
+</div></details></div><h2 id="implementors" class="small-section-header">Implementors<a href="#implementors" class="anchor">§</a></h2><div id="implementors-list"><details class="toggle implementors-toggle"><summary><section id="impl-AuthDrukarnia-for-Auth" class="impl"><a class="src rightside" href="../../src/type_matrux/client/impls/reqwest.rs.html#298-506">source</a><a href="#impl-AuthDrukarnia-for-Auth" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.AuthDrukarnia.html" title="trait type_matrux::client::AuthDrukarnia">AuthDrukarnia</a> for <a class="struct" href="struct.ReqwestAuth.html" title="struct type_matrux::client::ReqwestAuth">Auth</a></h3></section></summary><div class="impl-items"><section id="associatedtype.Downgrade-1" class="associatedtype trait-impl"><a href="#associatedtype.Downgrade-1" class="anchor">§</a><h4 class="code-header">type <a href="#associatedtype.Downgrade" class="associatedtype">Downgrade</a> = <a class="struct" href="../struct.ReqwestApi.html" title="struct type_matrux::ReqwestApi">Client</a></h4></section></div></details></div><script src="../../implementors/type_matrux/client/trait.AuthDrukarnia.js" async></script></section></div></main></body></html>

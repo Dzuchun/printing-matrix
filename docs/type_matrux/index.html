@@ -1,0 +1,99 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Brief"><title>type_matrux - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../static.files/rustdoc-fa3bb1812debf86c.css"><meta name="rustdoc-vars" data-root-path="../" data-static-root-path="../static.files/" data-current-crate="type_matrux" data-themes="" data-resource-suffix="" data-rustdoc-version="1.74.0 (79e9716c9 2023-11-13)" data-channel="1.74.0" data-search-js="search-8be46b629f5f14a8.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../crates.js"></script><script defer src="../static.files/main-c5bd66d33317d69f.js"></script><noscript><link rel="stylesheet" href="../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="logo-container" href="../type_matrux/index.html"><img class="rust-logo" src="../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a></nav><nav class="sidebar"><a class="logo-container" href="../type_matrux/index.html"><img class="rust-logo" src="../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><h2 class="location"><a href="#">Crate type_matrux</a></h2><div class="sidebar-elems"><ul class="block"><li class="version">Version 0.1.0</li><li><a id="all-types" href="all.html">All Items</a></li></ul><section><ul class="block"><li><a href="#reexports">Re-exports</a></li><li><a href="#modules">Modules</a></li><li><a href="#structs">Structs</a></li></ul></section></div></nav><main><div class="width-limiter"><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="main-heading"><h1>Crate <a class="mod" href="#">type_matrux</a><button id="copy-path" title="Copy item path to clipboard"><img src="../static.files/clipboard-7571035ce49a181d.svg" width="19" height="18" alt="Copy item path"></button></h1><span class="out-of-band"><a class="src" href="../src/type_matrux/lib.rs.html#1-152">source</a> · <button id="toggle-all-docs" title="collapse all docs">[<span>&#x2212;</span>]</button></span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="brief"><a href="#brief">Brief</a></h2>
+<p><code>type_matrux</code> allows you to search and query data on <a href="https://drukarnia.com.ua/"><code>Drukarnia</code></a> website.
+Although it’s not currently implemented, there’s a plan to make it also possible to authorize on a website,
+and perform any operation one would do with on the actual website (post articles and comments, and interact with other users).</p>
+<p>I aimed for the most accurate fetched data representation,
+so that there would be no surprizes, like missing/redundant fields, or unexpected field format. To test for that, there are “reinforcement tests” in the test suite -
+these attempt to deserialize a large returned data amount to prove that it’s representation is indeed correct.</p>
+<h3 id="please-note"><a href="#please-note">Please note</a></h3>
+<p>I’m <strong>NOT</strong> affiliated with Drukarnia’s developes in any way. In fact, they are <strong>not happy</strong> about people creating their own
+API adapters and do not provide any sort of API documentation. That said, please consider two things:</p>
+<ul>
+<li>The crate can be easily abused to perform illegal actions and I’m not responsible for anything you do.
+Please, respect Drukarnia’s policies, as well as privacy of other users.</li>
+<li>I don’t know full Drukarnia’s API capabilities - this crate only allows you to send requests explicitly used by their front-end
+(since these are the only ones I could capture).</li>
+</ul>
+<h2 id="details"><a href="#details">Details</a></h2>
+<p>You might be overwhelmed by the number of data structures defined. This is caused by Drukarnia returning just a little different fields list for each type of the request.
+Since I already claimed that my data representation is accurate, I’d need to define a separate data structure for each request type (most of the time).</p>
+<p>Also, this crate features simple newtypes for almost any field. While this might be annoying at first, It saved me a couple of times from passing wrong id types for a request.</p>
+<p>Right now, authorized operations are implemented, but not yet tested and proved to work correctly.
+To prevent crate users utilizing it, <a href="client/trait.DrukarniaApi.html#method.login" title="method type_matrux::client::DrukarniaApi::login"><code>DrukarniaApi::login</code></a> implementation panics now. Hope to change that soon.
+Also, be careful to not make Drukarnia suspicious
+(while testing, I got to the point of Drukarnia denying authorization, claiming that I’ve done it too many times already).</p>
+<p>The actual API currently can only be accessed with a <a href="struct.ReqwestApi.html" title="struct type_matrux::ReqwestApi"><code>reqwest::Client</code></a> (also reexported as <a href="struct.ReqwestApi.html" title="struct type_matrux::ReqwestApi"><code>ReqwestApi</code></a>).
+Any API accessor should implement <a href="client/trait.DrukarniaApi.html" title="trait type_matrux::client::DrukarniaApi"><code>DrukarniaApi</code></a> trait. This allows one to mock the accessor, or create your own accessor extensions.</p>
+<h2 id="examples"><a href="#examples">Examples</a></h2>
+<p>You may refer to <a href="client/trait.DrukarniaApi.html" title="trait type_matrux::client::DrukarniaApi"><code>DrukarniaApi</code></a> documentation as well as <a href="object/index.html" title="mod type_matrux::object"><code>crate::object</code></a> module documentation for a full list
+of requests you may send and data received from them.</p>
+<h3 id="feed-fetching"><a href="#feed-fetching">Feed fetching</a></h3>
+<p>Lets say, we want to get some articles from a Feed. To do that, you may use <a href="client/trait.DrukarniaApi.html#tymethod.feed_page" title="method type_matrux::client::DrukarniaApi::feed_page"><code>DrukarniaApi::feed_page</code></a> or <a href="client/trait.DrukarniaApi.html#method.feed" title="method type_matrux::client::DrukarniaApi::feed"><code>DrukarniaApi::feed</code></a>.
+As you might guess, the first one returns you a single feed page:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>client = ReqwestApi::new();
+<span class="kw">let </span>page = client.feed_page(NonZeroUsize::new(<span class="number">1</span>).expect(<span class="string">&quot;1 != 0&quot;</span>)).<span class="kw">await</span>.unwrap();
+<span class="macro">println!</span>(<span class="string">&quot;first article is {:#?}&quot;</span>, page[<span class="number">0</span>]);</code></pre></div>
+<p>While second one creates a stream of pages:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>client = ReqwestApi::new();
+<span class="kw">let </span>page_stream = client.feed();
+<span class="kw">let </span>eleventh_page = page_stream.skip(<span class="number">10</span>).next().<span class="kw">await</span>.unwrap().unwrap();
+<span class="macro">println!</span>(<span class="string">&quot;first article on eleventh page is {:#?}&quot;</span>, eleventh_page[<span class="number">0</span>]);</code></pre></div>
+<p>There’s also an option to flatten the stream of pages into a stream of separate articles:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>client = ReqwestApi::new();
+<span class="kw">let </span>article_stream = client.feed().flat();
+<span class="comment">//                                 ^^^^^^ note this call
+</span><span class="kw">let </span>hundredth_article = article_stream.skip(<span class="number">99</span>).next().<span class="kw">await</span>.unwrap().unwrap();
+<span class="macro">println!</span>(<span class="string">&quot;hundredth article is {:#?}&quot;</span>, hundredth_article);</code></pre></div>
+<p>Full code is available at <code>examples/feed.rs</code> for a closer inspection</p>
+<h3 id="averages"><a href="#averages">Averages</a></h3>
+<p>Let’s say we want to find an average number of likes, max number of comments and average number of author reads for all
+articles searched as having “Дія” in their title.
+To do that, we can use <a href="client/trait.DrukarniaApi.html#tymethod.search_article_page" title="method type_matrux::client::DrukarniaApi::search_article_page"><code>DrukarniaApi::search_article_page</code></a>/<a href="client/trait.DrukarniaApi.html#method.search_article" title="method type_matrux::client::DrukarniaApi::search_article"><code>DrukarniaApi::search_article</code></a> (having same sort of behavior, as discussed above with feed):</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span>client = ReqwestApi::new();
+<span class="kw">let </span>search_name = <span class="string">&quot;Дія&quot;</span>.parse().unwrap();
+<span class="kw">let </span><span class="kw-2">mut </span>articles = client.search_article(search_name).flat().take(<span class="number">500</span>);
+<span class="kw">let </span><span class="kw-2">mut </span>total_likes = <span class="number">0</span>;
+<span class="kw">let </span><span class="kw-2">mut </span>max_comments = <span class="number">0</span>;
+<span class="kw">let </span><span class="kw-2">mut </span>total_reads = <span class="number">0</span>;
+<span class="kw">let </span><span class="kw-2">mut </span>total_articles = <span class="number">0</span>;
+<span class="kw">while let </span><span class="prelude-val">Some</span>(<span class="prelude-val">Ok</span>(article)) = articles.next().<span class="kw">await </span>{
+    total_articles += <span class="number">1</span>;
+    total_likes += article.like_num();
+    max_comments = std::cmp::max(max_comments, <span class="kw-2">*</span>article.comment_num());
+    total_reads += article.owner().read_num();
+}
+<span class="macro">println!</span>(<span class="string">&quot;{} articles processed&quot;</span>, total_articles);
+<span class="macro">println!</span>(
+    <span class="string">&quot;average like num: {}&quot;</span>,
+    (total_likes <span class="kw">as </span>f64) / (total_articles <span class="kw">as </span>f64)
+);
+<span class="macro">println!</span>(<span class="string">&quot;max comments: {}&quot;</span>, max_comments);
+<span class="macro">println!</span>(
+    <span class="string">&quot;average author reads: {}&quot;</span>,
+    (total_reads <span class="kw">as </span>f64) / (total_articles <span class="kw">as </span>f64)
+);</code></pre></div>
+<p>Full code is available at <code>examples/averages.rs</code> for closer inspection</p>
+<h2 id="on-further-developing"><a href="#on-further-developing">On further developing</a></h2>
+<p>This crate was created as my Rust learning project, and thus might not be updated in the future. These tests take a long time to run, so they are ignored by default.
+As I mentioned, there’s no contact between me and the developers, and thus these data representations might become invalid after some time.
+In this case, I’d like to be notified on the issue tracker (if not stated otherwise).</p>
+<p>For now, developed feature list is as follows:</p>
+<ul>
+<li><input disabled="" type="checkbox"/>
+Add article content typing (it’s returned in a sort of weird form, that feels like JSON-serialized HTML).</li>
+<li><input disabled="" type="checkbox"/>
+Add validation to String newtypes. This requires some real effort,
+as there’s little known about limitations on things like Descriptions and DisplayNames</li>
+<li><input disabled="" type="checkbox"/>
+Add procedural macro for compile-time verification of object ids, slugs, etc.
+This will help user to know that id/slug does not exist at compile-time!</li>
+<li><input disabled="" type="checkbox"/>
+Implement auth operations.</li>
+<li><input disabled="" type="checkbox"/>
+Add API implementations for other popular HTTP clients like <code>isahc</code> and <code>surf</code>.</li>
+</ul>
+</div></details><h2 id="reexports" class="small-section-header"><a href="#reexports">Re-exports</a></h2><ul class="item-table"><li><div class="item-name" id="reexport.DrukarniaApi"><code>pub use client::<a class="trait" href="client/trait.DrukarniaApi.html" title="trait type_matrux::client::DrukarniaApi">DrukarniaApi</a>;</code></div></li></ul><h2 id="modules" class="small-section-header"><a href="#modules">Modules</a></h2><ul class="item-table"><li><div class="item-name"><a class="mod" href="client/index.html" title="mod type_matrux::client">client</a></div><div class="desc docblock-short">Contains <a href="client/trait.DrukarniaApi.html" title="trait type_matrux::client::DrukarniaApi"><code>DrukarniaApi</code></a> trait, as well as it’s provided implementations</div></li><li><div class="item-name"><a class="mod" href="object/index.html" title="mod type_matrux::object">object</a></div><div class="desc docblock-short">Contains data objects as well as some infrastructure for their definition and usage.</div></li></ul><h2 id="structs" class="small-section-header"><a href="#structs">Structs</a></h2><ul class="item-table"><li><div class="item-name"><a class="struct" href="struct.ReqwestApi.html" title="struct type_matrux::ReqwestApi">ReqwestApi</a></div><div class="desc docblock-short">An asynchronous <code>Client</code> to make Requests with.</div></li></ul></section></div></main></body></html>
