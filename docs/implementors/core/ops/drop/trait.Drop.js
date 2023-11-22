@@ -1,0 +1,3 @@
+(function() {var implementors = {
+"type_matrux":[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.74.0/core/ops/drop/trait.Drop.html\" title=\"trait core::ops::drop::Drop\">Drop</a> for <a class=\"struct\" href=\"type_matrux/client/struct.ReqwestAuth.html\" title=\"struct type_matrux::client::ReqwestAuth\">Auth</a>"]]
+};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

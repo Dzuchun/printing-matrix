@@ -1,0 +1,3 @@
+(function() {var implementors = {
+"type_matrux":[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.74.0/core/default/trait.Default.html\" title=\"trait core::default::Default\">Default</a> for <a class=\"struct\" href=\"type_matrux/object/struct.UserSocials.html\" title=\"struct type_matrux::object::UserSocials\">Socials</a>"]]
+};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

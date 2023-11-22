@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["Error"],"struct":["ReqwestApi","ReqwestAuth"],"trait":["AuthDrukarnia","DrukarniaApi"]};

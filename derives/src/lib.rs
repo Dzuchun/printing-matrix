@@ -81,7 +81,7 @@ pub fn data_type(input: TokenStream) -> TokenStream {
     let fields: proc_macro2::TokenStream = identifiers.map(data_field).collect();
     quote! {
         #[derive(Debug, ::serde::Deserialize, ::derive_getters::Getters, ::derives::Aged, Clone)]
-        #[serde(deny_unknown_fields)]
+        #[cfg_attr(test, serde(deny_unknown_fields))]
         pub struct #name {
             #fields
             #[serde(skip, default = "::time::OffsetDateTime::now_utc")]
@@ -347,6 +347,10 @@ fn data_field(name: Ident) -> proc_macro2::TokenStream {
         "donate_url" => quote! {
             #[serde(rename = "donateUrl", default)]
             donate_url: Option<super::MaybeUrl>,
+        },
+        "canonical" => quote! {
+            #[getter(skip)]
+            canonical: Option<url::Url>,
         },
         "unused_pin_created_at" => quote! {
             #[serde(
