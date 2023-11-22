@@ -348,6 +348,10 @@ fn data_field(name: Ident) -> proc_macro2::TokenStream {
             #[serde(rename = "donateUrl", default)]
             donate_url: Option<super::MaybeUrl>,
         },
+        "canonical" => quote! {
+            #[getter(skip)]
+            canonical: Option<url::Url>,
+        },
         "unused_pin_created_at" => quote! {
             #[serde(
                 skip_serializing,
