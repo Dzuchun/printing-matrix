@@ -81,7 +81,7 @@ pub fn data_type(input: TokenStream) -> TokenStream {
     let fields: proc_macro2::TokenStream = identifiers.map(data_field).collect();
     quote! {
         #[derive(Debug, ::serde::Deserialize, ::derive_getters::Getters, ::derives::Aged, Clone)]
-        #[serde(deny_unknown_fields)]
+        #[cfg_attr(test, serde(deny_unknown_fields))]
         pub struct #name {
             #fields
             #[serde(skip, default = "::time::OffsetDateTime::now_utc")]
