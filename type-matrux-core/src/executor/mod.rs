@@ -4,6 +4,9 @@ use url::Url;
 
 use crate::{request::Request, BaseUrl, ResponseParts};
 
+#[cfg(feature = "reqwest")]
+mod reqwest;
+
 #[derive(Debug)]
 pub enum ExecutorError<E, R> {
     Execution(E),
