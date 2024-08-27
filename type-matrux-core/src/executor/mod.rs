@@ -1,5 +1,7 @@
 use core::fmt::Display;
 use http::Method;
+#[cfg(feature = "stderror")]
+use std::error::Error;
 use url::Url;
 
 use crate::{request::Request, BaseUrl, ResponseParts};
@@ -18,6 +20,16 @@ impl<E: Display, R: Display> Display for ExecutorError<E, R> {
         match self {
             ExecutorError::Execution(err) => err.fmt(f),
             ExecutorError::Response(err) => err.fmt(f),
+        }
+    }
+}
+
+#[cfg(feature = "stderror")]
+impl<E: Error, R: Error> Error for ExecutorError<E, R> {
+    fn source(&self) -> Option<&(dyn std::error::Error + 'static)> {
+        match self {
+            ExecutorError::Execution(err) => err.source(),
+            ExecutorError::Response(err) => err.source(),
         }
     }
 }

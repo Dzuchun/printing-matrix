@@ -7,7 +7,10 @@ edition = "2021"
 derive_more = { version = "1.0.0", features = ["as_ref"] }
 http = "1.1.0"
 reqwest = { version = "0.12.7", optional = true }
+thiserror = { version= "1.0.63", optional = true}
 tracing = { version = "0.1.40", features = ["attributes"] }
 url = "2.5.2"
 
+[features]
+stderror = [ "dep:thiserror" ]
 reqwest = [ "dep:reqwest" ]
