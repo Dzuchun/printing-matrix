@@ -1,7 +1,11 @@
 use core::fmt::Display;
 use http::Method;
+use url::Url;
+
 use crate::{request::Request, BaseUrl, ResponseParts};
 
+#[derive(Debug)]
+pub enum ExecutorError<E, R> {
     Execution(E),
     Response(R),
 }
