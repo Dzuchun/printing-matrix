@@ -1,4 +1,5 @@
-use std::{convert::Infallible, sync::Arc};
+use alloc::sync::Arc;
+use core::convert::Infallible;
 
 use http::{header, Method};
 use reqwest::Client;

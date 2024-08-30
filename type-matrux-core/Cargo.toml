@@ -12,5 +12,6 @@ tracing = { version = "0.1.40", features = ["attributes"] }
 url = "2.5.2"
 
 [features]
-stderror = [ "dep:thiserror" ]
+std = []
+stderror = [ "std", "dep:thiserror" ]
 reqwest = [ "dep:reqwest" ]

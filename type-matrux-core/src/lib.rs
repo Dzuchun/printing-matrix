@@ -1,9 +1,16 @@
+#![allow(clippy::module_name_repetitions)]
+#![no_std]
+#[cfg(feature = "std")]
+extern crate std;
+
+extern crate alloc;
+
 use http::StatusCode;
 use url::{PathSegmentsMut, Url};
 
-mod executor;
+pub mod executor;
 
-mod request;
+pub mod request;
 
 pub struct CannotBeABase(pub Url);
 
@@ -36,7 +43,7 @@ impl BaseUrl {
     }
 }
 
-struct ResponseParts {
+pub struct ResponseParts {
     status_code: StatusCode,
-    body: String,
+    pub body: alloc::string::String,
 }

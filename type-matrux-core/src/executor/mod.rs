@@ -16,7 +16,7 @@ pub enum ExecutorError<E, R> {
 }
 
 impl<E: Display, R: Display> Display for ExecutorError<E, R> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match self {
             ExecutorError::Execution(err) => err.fmt(f),
             ExecutorError::Response(err) => err.fmt(f),
