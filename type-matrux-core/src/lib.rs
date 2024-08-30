@@ -5,8 +5,6 @@ extern crate std;
 
 extern crate alloc;
 
-use http::StatusCode;
-
 use url::{PathSegmentsMut, Url};
 
 pub mod executor;

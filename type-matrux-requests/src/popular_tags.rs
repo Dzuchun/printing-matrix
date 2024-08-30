@@ -31,7 +31,7 @@ impl Request for PopularTags {
     }
 
     fn query_params(&self) -> Self::QueryParamsIter {
-        std::iter::empty()
+        core::iter::empty()
     }
 
     fn generate_reponse(
