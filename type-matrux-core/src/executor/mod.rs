@@ -1,5 +1,5 @@
 use core::fmt::Display;
-use http::Method;
+use edge_http::Method;
 #[cfg(feature = "stderror")]
 use std::error::Error;
 use url::Url;

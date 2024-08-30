@@ -6,11 +6,14 @@ extern crate std;
 extern crate alloc;
 
 use http::StatusCode;
+
 use url::{PathSegmentsMut, Url};
 
 pub mod executor;
 
 pub mod request;
+
+pub mod primitives;
 
 pub struct CannotBeABase(pub Url);
 
@@ -44,6 +47,6 @@ impl BaseUrl {
 }
 
 pub struct ResponseParts {
-    status_code: StatusCode,
+    pub status_code: u16,
     pub body: alloc::string::String,
 }

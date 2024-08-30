@@ -1,7 +1,7 @@
 use alloc::sync::Arc;
 use core::convert::Infallible;
 
-use http::{header, Method};
+use edge_http::Method;
 use reqwest::Client;
 use url::Url;
 
@@ -54,17 +54,17 @@ impl RequestExecutorInner for ReqwestExecutor {
         method: Method,
     ) -> Result<ResponseParts, Self::ExecutionError> {
         // Start by selecting correct method
-        let builder = if method == Method::GET {
+        let builder = if method == Method::Get {
             self.client.get(url)
-        } else if method == Method::POST {
+        } else if method == Method::Post {
             self.client.post(url)
         } else {
             return Err(ReqwestExecutorError::UnknownMethod(method));
         };
         // Append necessary headers
         let builder = builder
-            .header(header::USER_AGENT, USER_AGENT)
-            .header(header::HOST, DRUKARNIA_SITE);
+            .header("User-Agent", USER_AGENT)
+            .header("Host", DRUKARNIA_SITE);
         // Execute the request
         let response = builder.send().await.map_err(ReqwestExecutorError::Send)?;
         let status_code = response.status();

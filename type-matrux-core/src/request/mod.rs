@@ -1,5 +1,3 @@
-use http::Method;
-
 use crate::ResponseParts;
 
 pub trait Request {
@@ -18,7 +16,7 @@ pub trait Request {
     /// Must set endpoint for this request
     fn endpoint(&self) -> Self::PathSegmentsIter;
 
-    fn method(&self) -> Method;
+    fn method(&self) -> edge_http::Method;
 
     fn query_params(&self) -> Self::QueryParamsIter;
 

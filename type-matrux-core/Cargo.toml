@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 derive_more = { version = "1.0.0", features = ["as_ref"] }
-http = "1.1.0"
+edge-http = {version = "0.2.1", default_features = false }
 reqwest = { version = "0.12.7", optional = true }
 thiserror = { version= "1.0.63", optional = true}
 tracing = { version = "0.1.40", features = ["attributes"] }
