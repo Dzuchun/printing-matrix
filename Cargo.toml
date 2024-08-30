@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "type-matrux-core",
+    "type-matrux-requests",
+]
