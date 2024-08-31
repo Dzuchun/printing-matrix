@@ -67,7 +67,7 @@ impl RequestExecutorInner for ReqwestExecutor {
             .header("Host", DRUKARNIA_SITE);
         // Execute the request
         let response = builder.send().await.map_err(ReqwestExecutorError::Send)?;
-        let status_code = response.status();
+        let status_code = response.status().as_u16();
         let body = response
             .text()
             .await
