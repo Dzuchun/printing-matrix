@@ -2,4 +2,5 @@
 members = [
     "type-matrux-core",
     "type-matrux-requests",
+    "type-matrux-util",
 ]

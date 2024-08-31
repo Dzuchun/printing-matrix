@@ -1,0 +1,11 @@
+[package]
+name = "type-matrux-util"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+derive_more = { version = "1.0.0", default-features = false, optional = true, features = ["is_variant"] }
+
+[features]
+sow = [ "dep:derive_more" ]
+asow = [ "dep:derive_more" ]
