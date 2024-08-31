@@ -1,6 +1,6 @@
 #![allow(clippy::module_name_repetitions)]
 #![no_std]
-#[cfg(feature = "std")]
+#[cfg(feature = "stderror")]
 extern crate std;
 
 extern crate alloc;

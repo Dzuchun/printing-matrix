@@ -10,5 +10,4 @@ serde_json = "1.0.127"
 type-matrux-core = { path = "../type-matrux-core", features = [ "deserialize" ] }
 
 [features]
-std = [ "type-matrux-core/std" ]
 serialize = [ "type-matrux-core/serialize" ]
