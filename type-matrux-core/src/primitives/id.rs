@@ -82,3 +82,4 @@ macro_rules! id {
 }
 
 id! {Tag, "article tag"}
+id! {User, "user"}
