@@ -12,25 +12,23 @@ impl Request for PopularTags {
 
     type ResponseError = serde_json::Error;
 
-    type QueryParamsIter = core::iter::Empty<(Self::QueryParameterName, Self::QueryParameterValue)>;
-
     type QueryParameterName = &'static str;
 
     type QueryParameterValue = &'static str;
 
-    type PathSegmentsIter = core::array::IntoIter<Self::PathSegment, 4>;
-
     type PathSegment = &'static str;
 
-    fn endpoint(&self) -> Self::PathSegmentsIter {
-        ["api", "articles", "tags", "popular"].into_iter()
+    fn endpoint(&self) -> impl IntoIterator<Item = Self::PathSegment> {
+        ["api", "articles", "tags", "popular"]
     }
 
     fn method(&self) -> Method {
         Method::Get
     }
 
-    fn query_params(&self) -> Self::QueryParamsIter {
+    fn query_params(
+        &self,
+    ) -> impl IntoIterator<Item = (Self::QueryParameterName, Self::QueryParameterValue)> {
         core::iter::empty()
     }
 
